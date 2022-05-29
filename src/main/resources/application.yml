@@ -16,6 +16,20 @@ spring:
   thymeleaf:
     cache: false
 
+  #Mail配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 821786679@qq.com
+    password: vgnpxmsizowabcbh
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    protocol: smtps
+
+
 
 
 mybatis:
@@ -30,3 +44,4 @@ mybatis:
 #    com.ancientmoon.newcommunity: debug
 #  file:
 #    path: /Users/huliheng/IdeaProjects/NewCommunity/src/main/java/com/ancientmoon/newcommunity/log
+
