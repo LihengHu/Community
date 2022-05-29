@@ -1,0 +1,16 @@
+2022-05-29 01:08:41,477 INFO [main] c.a.n.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 88781 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-05-29 01:08:41,480 INFO [main] c.a.n.LoggerTests [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-05-29 01:08:42,270 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-29 01:08:42,274 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-05-29 01:08:42,298 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-05-29 01:08:43,681 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-05-29 01:08:44,560 INFO [main] c.a.n.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 3.62 seconds (JVM running for 4.797)
+2022-05-29 01:08:44,838 INFO [main] c.a.n.LoggerTests [LoggerTests.java:17] info log
+2022-05-29 01:11:31,465 INFO [main] c.a.n.LoggerTests [StartupInfoLogger.java:55] Starting LoggerTests using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 93041 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-05-29 01:11:31,468 INFO [main] c.a.n.LoggerTests [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-05-29 01:11:32,215 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-29 01:11:32,219 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-05-29 01:11:32,246 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-05-29 01:11:33,706 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-05-29 01:11:34,598 INFO [main] c.a.n.LoggerTests [StartupInfoLogger.java:61] Started LoggerTests in 3.675 seconds (JVM running for 4.726)
+2022-05-29 01:11:34,851 INFO [main] c.a.n.LoggerTests [LoggerTests.java:17] info log
