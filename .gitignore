@@ -17,6 +17,10 @@ target/
 #Mac##
 .DS_Store
 
+#maven
+mvnw
+mvnw.cmd
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
