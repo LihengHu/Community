@@ -20,6 +20,7 @@ target/
 #maven
 mvnw
 mvnw.cmd
+.mvn
 
 ### IntelliJ IDEA ###
 .idea
