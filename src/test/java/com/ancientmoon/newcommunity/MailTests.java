@@ -27,10 +27,11 @@ public class MailTests {
     public void testHtmlMail(){
         String to = "936933606@qq.com";
         String SLL= "2251437787@qq.com";
+        String ZWJ= "810886242@qq.com";
         Context context = new Context();
-        context.setVariable("username",SLL);
+        context.setVariable("username",ZWJ);
         String process = templateEngine.process("/mail/demo", context);
-        mailClient.sendMail(SLL,"TEST",process);
+        mailClient.sendMail(ZWJ,"TEST",process);
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @SpringBootTest
-public class MapperTest {
+public class MapperTests {
 
     @Autowired
     private DiscussPostMapper discussPostMapper;

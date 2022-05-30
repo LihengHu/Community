@@ -42,3 +42,10 @@
 2022-05-29 23:33:20,306 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
 2022-05-29 23:33:21,766 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
 2022-05-29 23:33:22,681 INFO [main] c.a.n.MailTests [StartupInfoLogger.java:61] Started MailTests in 3.591 seconds (JVM running for 4.786)
+2022-05-29 23:39:20,673 INFO [main] c.a.n.MailTests [StartupInfoLogger.java:55] Starting MailTests using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 20173 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-05-29 23:39:20,676 INFO [main] c.a.n.MailTests [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-05-29 23:39:21,434 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-05-29 23:39:21,438 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-05-29 23:39:21,466 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-05-29 23:39:23,132 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-05-29 23:39:24,127 INFO [main] c.a.n.MailTests [StartupInfoLogger.java:61] Started MailTests in 3.972 seconds (JVM running for 5.112)
