@@ -2,12 +2,22 @@ package com.ancientmoon.newcommunity.controller;
 
 import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.UserService;
+import com.google.code.kaptcha.Producer;
 import org.apache.ibatis.annotations.Param;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Map;
 
 
@@ -16,6 +26,11 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private Producer producer;
+
+    public static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
     @GetMapping("/register")
     public String getRegisterPage(){
@@ -57,5 +72,21 @@ public class LoginController {
             model.addAttribute("target", "/index");
         }
         return "/site/operate-result";
+    }
+
+    @GetMapping("/kaptcha")
+    public void getKaptcha(HttpServletResponse httpServletResponse, HttpSession session){
+        //生成验证码
+        String text = producer.createText();
+        BufferedImage image = producer.createImage(text);
+        //将验证码存入session
+        session.setAttribute("kaptcha",text);
+        httpServletResponse.setContentType("image/png");
+        try {
+            OutputStream os = httpServletResponse.getOutputStream();
+            ImageIO.write(image,"png",os);
+        } catch (IOException e) {
+            logger.error("响应验证码失败"+e.getMessage());
+        }
     }
 }
