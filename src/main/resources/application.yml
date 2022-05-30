@@ -38,6 +38,7 @@ mybatis:
 
   configuration:
     map-underscore-to-camel-case: true
+    use-generated-keys: true
 
 #logging:
 #  level:
@@ -45,3 +46,9 @@ mybatis:
 #  file:
 #    path: /Users/huliheng/IdeaProjects/NewCommunity/src/main/java/com/ancientmoon/newcommunity/log
 
+#community
+
+community:
+  path:
+    domain:
+      http://localhost:80

@@ -1,2 +1,1 @@
-2022-05-29 01:08:44,839 WARN [main] c.a.n.LoggerTests [LoggerTests.java:18] warn log
-2022-05-29 01:11:34,851 WARN [main] c.a.n.LoggerTests [LoggerTests.java:18] warn log
+2022-05-30 18:31:25,937 WARN [http-nio-80-exec-2] o.s.w.s.m.s.DefaultHandlerExceptionResolver [AbstractHandlerExceptionResolver.java:208] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "css"]
