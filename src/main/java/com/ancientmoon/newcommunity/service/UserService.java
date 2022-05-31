@@ -1,6 +1,8 @@
 package com.ancientmoon.newcommunity.service;
 
+import com.ancientmoon.newcommunity.dao.mapper.LoginTicketMapper;
 import com.ancientmoon.newcommunity.dao.mapper.UserMapper;
+import com.ancientmoon.newcommunity.entity.LoginTicket;
 import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.utils.CommunityConstant;
 import com.ancientmoon.newcommunity.utils.CommunityUtil;
@@ -28,6 +30,9 @@ public class UserService implements CommunityConstant {
     @Autowired
     private MailClient mailClient;
 
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+
     @Resource
     private TemplateEngine templateEngine;
 
@@ -38,22 +43,22 @@ public class UserService implements CommunityConstant {
     private String contextPath;
 
 
-    public User findUserById(int id){
+    public User findUserById(int id) {
         User user = userMapper.selectById(id);
         return user;
     }
 
-    public Map<String,Object> register(User user){
-        Map<String,Object> map = new HashMap<>();
-        if(user == null){
+    public Map<String, Object> register(User user) {
+        Map<String, Object> map = new HashMap<>();
+        if (user == null) {
             throw new IllegalArgumentException("参数不能为空！");
         }
-        if(StringUtils.isBlank(user.getUsername())){
-            map.put("usernameMsg","账号不能为空！");
+        if (StringUtils.isBlank(user.getUsername())) {
+            map.put("usernameMsg", "账号不能为空！");
             return map;
         }
-        if(StringUtils.isBlank(user.getPassword())){
-            map.put("passwordMsg","密码不能为空！");
+        if (StringUtils.isBlank(user.getPassword())) {
+            map.put("passwordMsg", "密码不能为空！");
             return map;
         }
         if (StringUtils.isBlank(user.getEmail())) {
@@ -98,17 +103,55 @@ public class UserService implements CommunityConstant {
     }
 
 
-    public int activation(int userId ,String code){
+    public int activation(int userId, String code) {
         User user = userMapper.selectById(userId);
-        if(user.getStatus() == 1){
+        if (user.getStatus() == 1) {
             return ACTIVATION_REPEAT;
-        }
-        else if(user.getActivationCode().equals(code)){
-            userMapper.updateStatus(userId,1);
+        } else if (user.getActivationCode().equals(code)) {
+            userMapper.updateStatus(userId, 1);
             return ACTIVATION_SUCCESS;
-        }
-        else return ACTIVATION_FAILURE;
+        } else return ACTIVATION_FAILURE;
     }
 
+    public Map<String, Object> login(String username, String password, int expiredSeconds) {
+        Map<String, Object> map = new HashMap<>();
+        if (StringUtils.isBlank(username)) {
+            map.put("usernameMsg", "账号不能为空");
+            return map;
+        }
+        if (StringUtils.isBlank(password)) {
+            map.put("passwordMsg", "密码不能为空");
+            return map;
+        }
+        //验证账号
+        User user = userMapper.selectByName(username);
+        if (user == null) {
+            map.put("usernameMsg", "账号不存在");
+            return map;
+        }
+        if (user.getStatus() == 0) {
+            map.put("usernameMsg", "账号未激活");
+            return map;
+        }
+        //验证密码
+        password = CommunityUtil.md5(password + user.getSalt());
+        if (!user.getPassword().equals(password)) {
+            map.put("passwordMsg", "密码错误！");
+            return map;
+        }
+        //生成登录凭证
+        LoginTicket loginTicket = new LoginTicket();
+        loginTicket.setUserId(user.getId());
+        loginTicket.setTicket(CommunityUtil.generateUUID());
+        loginTicket.setStatus(0);
+        loginTicket.setExpired(new Date(System.currentTimeMillis() + expiredSeconds * 1000));
+        loginTicketMapper.insertLoginTicket(loginTicket);
+        map.put("ticket", loginTicket.getTicket());
+        return map;
+    }
+
+    public void logout(String ticket) {
+        loginTicketMapper.updateStatus(ticket, 1);
+    }
 
 }

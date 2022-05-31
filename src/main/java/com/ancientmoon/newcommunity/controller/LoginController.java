@@ -3,15 +3,18 @@ package com.ancientmoon.newcommunity.controller;
 import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.UserService;
 import com.google.code.kaptcha.Producer;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.awt.*;
@@ -19,6 +22,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
+
+import static com.ancientmoon.newcommunity.utils.CommunityConstant.DEFAULT_EXPIRED_SECONDS;
+import static com.ancientmoon.newcommunity.utils.CommunityConstant.REMEMBER_EXPIRED_SECONDS;
 
 
 @Controller
@@ -31,6 +37,9 @@ public class LoginController {
     private Producer producer;
 
     public static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+    @Value("${server.servlet.context-path}")
+    private String contextPath;
 
     @GetMapping("/register")
     public String getRegisterPage(){
@@ -90,5 +99,33 @@ public class LoginController {
         }
     }
 
+    @PostMapping("/login")
+    public String login(String username ,String password ,String code ,boolean rememberme,
+                        Model model ,HttpSession session ,HttpServletResponse response){
+        String kaptcha = (String)session.getAttribute("kaptcha");
+        if(StringUtils.isBlank(kaptcha) || StringUtils.isBlank(code) || !kaptcha.equalsIgnoreCase(code)){
+            model.addAttribute("codeMsg","验证码不正确！");
+            return "/site/login";
+        }
+        //检查账号，密码
+        int expireDSeconds = rememberme ? REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
+        Map<String,Object> map = userService.login(username,password,expireDSeconds);
+        if(map.containsKey("ticket")){
+            Cookie cookie = new Cookie("ticket",(String) map.get("ticket"));
+            cookie.setPath(contextPath);
+            cookie.setMaxAge(expireDSeconds);
+            response.addCookie(cookie);
+            return "redirect:/index";
+        }else {
+            model.addAttribute("usernameMsg",map.get("usernameMsg"));
+            model.addAttribute("passwordMsg",map.get("passwordMsg"));
+            return "/site/login";
+        }
+    }
 
+    @GetMapping("/logout")
+    public String logout(@CookieValue("ticket") String ticket){
+        userService.logout(ticket);
+        return "redirect:/login";
+    }
 }
