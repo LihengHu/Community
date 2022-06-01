@@ -111,9 +111,10 @@ public class LoginController {
         int expireDSeconds = rememberme ? REMEMBER_EXPIRED_SECONDS : DEFAULT_EXPIRED_SECONDS;
         Map<String,Object> map = userService.login(username,password,expireDSeconds);
         if(map.containsKey("ticket")){
+            //登录成功，设置Cookie
             Cookie cookie = new Cookie("ticket",(String) map.get("ticket"));
             cookie.setPath(contextPath);
-            cookie.setMaxAge(expireDSeconds);
+            cookie.setMaxAge(expireDSeconds);//有效时间
             response.addCookie(cookie);
             return "redirect:/index";
         }else {
@@ -124,8 +125,17 @@ public class LoginController {
     }
 
     @GetMapping("/logout")
-    public String logout(@CookieValue("ticket") String ticket){
-        userService.logout(ticket);
+    public String logout(@CookieValue("ticket") String ticket , HttpServletResponse response){
+        //userService.logout(ticket);
+        //销毁Cookie
+        // 根据 key 将 value 置空
+        Cookie cookie_username = new Cookie("ticket", "");
+        // 设置持久时间为0
+        cookie_username.setMaxAge(0);
+        // 设置共享路径
+        cookie_username.setPath(contextPath);
+        // 向客户端发送 Cookie
+        response.addCookie(cookie_username);
         return "redirect:/login";
     }
 }
