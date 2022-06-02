@@ -33,5 +33,4 @@ public class MailTests {
         String process = templateEngine.process("/mail/demo", context);
         mailClient.sendMail(ZWJ,"TEST",process);
     }
-
 }
