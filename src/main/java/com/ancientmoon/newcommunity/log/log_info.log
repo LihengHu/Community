@@ -208,3 +208,24 @@
 2022-06-02 18:37:33,099 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
 2022-06-02 18:37:34,508 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
 2022-06-02 18:37:35,265 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:61] Started SensitiveTest in 3.385 seconds (JVM running for 4.325)
+2022-06-02 18:47:56,667 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:55] Starting SensitiveTest using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 23110 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 18:47:56,669 INFO [main] c.a.n.SensitiveTest [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 18:47:57,434 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 18:47:57,441 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 18:47:57,493 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 19 ms. Found 0 Redis repository interfaces.
+2022-06-02 18:47:59,735 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 18:48:00,593 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:61] Started SensitiveTest in 4.631 seconds (JVM running for 5.888)
+2022-06-02 18:48:31,500 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:55] Starting SensitiveTest using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 24043 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 18:48:31,502 INFO [main] c.a.n.SensitiveTest [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 18:48:32,258 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 18:48:32,262 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 18:48:32,288 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-06-02 18:48:34,000 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 18:48:34,957 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:61] Started SensitiveTest in 3.993 seconds (JVM running for 5.212)
+2022-06-02 18:48:55,186 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:55] Starting SensitiveTest using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 25612 (started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 18:48:55,188 INFO [main] c.a.n.SensitiveTest [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 18:48:55,939 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 18:48:55,942 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 18:48:55,966 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-06-02 18:48:57,677 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 18:48:58,626 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:61] Started SensitiveTest in 3.958 seconds (JVM running for 5.161)
