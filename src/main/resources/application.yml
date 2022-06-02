@@ -40,6 +40,8 @@ mybatis:
     map-underscore-to-camel-case: true
     use-generated-keys: true
 
+
+
 #logging:
 #  level:
 #    com.ancientmoon.newcommunity: debug
@@ -50,5 +52,5 @@ mybatis:
 
 community:
   path:
-    domain:
-      http://localhost:80
+    domain: http://localhost:80
+    upload: /Users/huliheng/IdeaProjects/NewCommunity/src/main/resources/upload

@@ -5,6 +5,8 @@ import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.UserService;
 import com.ancientmoon.newcommunity.utils.CookieUtil;
 import com.ancientmoon.newcommunity.utils.HostHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -23,9 +25,12 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
     @Autowired
     HostHolder hostHolder;
 
+    private static final Logger logger = LoggerFactory.getLogger(LoginTicketInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ticket = CookieUtil.getValue(request, "ticket");
+        System.out.println("----------调用一次-----------");
         if(ticket != null){
             LoginTicket loginTicket = userService.findLoginTicket(ticket);
             if(loginTicket.getStatus() == 1){
@@ -50,6 +55,7 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+        System.out.println("调用afterCompletion");
         hostHolder.clear();//清理hostHolder的资源，即threadLocal的资源
     }
 }

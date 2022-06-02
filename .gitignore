@@ -22,6 +22,11 @@ mvnw
 mvnw.cmd
 .mvn
 
+#picture
+.jpg
+.jpeg
+.png
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
