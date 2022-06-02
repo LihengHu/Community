@@ -229,3 +229,106 @@
 2022-06-02 18:48:55,966 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
 2022-06-02 18:48:57,677 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
 2022-06-02 18:48:58,626 INFO [main] c.a.n.SensitiveTest [StartupInfoLogger.java:61] Started SensitiveTest in 3.958 seconds (JVM running for 5.161)
+2022-06-02 20:29:44,281 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:55] Starting NewCommunityApplication using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 43602 (/Users/huliheng/IdeaProjects/NewCommunity/target/classes started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 20:29:44,286 INFO [main] c.a.n.NewCommunityApplication [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 20:29:45,158 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 20:29:45,162 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 20:29:45,192 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-06-02 20:29:45,772 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 80 (http)
+2022-06-02 20:29:45,784 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-80"]
+2022-06-02 20:29:45,785 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-06-02 20:29:45,785 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-02 20:29:45,885 INFO [main] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-06-02 20:29:45,886 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:292] Root WebApplicationContext: initialization completed in 1536 ms
+2022-06-02 20:29:46,461 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 20:29:46,930 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-80"]
+2022-06-02 20:29:46,950 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 80 (http) with context path '/community'
+2022-06-02 20:29:46,961 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:61] Started NewCommunityApplication in 3.287 seconds (JVM running for 4.032)
+2022-06-02 20:30:55,290 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:55] Starting NewCommunityApplication using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 44851 (/Users/huliheng/IdeaProjects/NewCommunity/target/classes started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 20:30:55,293 INFO [main] c.a.n.NewCommunityApplication [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 20:30:55,930 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 20:30:55,932 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 20:30:55,950 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-06-02 20:30:56,392 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 80 (http)
+2022-06-02 20:30:56,400 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-80"]
+2022-06-02 20:30:56,401 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-06-02 20:30:56,401 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-02 20:30:56,466 INFO [main] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-06-02 20:30:56,466 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:292] Root WebApplicationContext: initialization completed in 1128 ms
+2022-06-02 20:30:56,939 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 20:30:57,297 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-80"]
+2022-06-02 20:30:57,318 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 80 (http) with context path '/community'
+2022-06-02 20:30:57,329 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:61] Started NewCommunityApplication in 2.474 seconds (JVM running for 2.993)
+2022-06-02 20:31:07,857 INFO [http-nio-80-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 20:31:07,857 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2022-06-02 20:31:07,858 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 1 ms
+2022-06-02 20:31:07,935 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-06-02 20:31:08,100 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-06-02 20:31:44,440 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2022-06-02 20:31:44,448 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2022-06-02 20:31:47,554 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:55] Starting NewCommunityApplication using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 46117 (/Users/huliheng/IdeaProjects/NewCommunity/target/classes started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 20:31:47,557 INFO [main] c.a.n.NewCommunityApplication [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 20:31:48,146 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 20:31:48,148 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 20:31:48,165 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-06-02 20:31:48,587 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 80 (http)
+2022-06-02 20:31:48,595 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-80"]
+2022-06-02 20:31:48,596 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-06-02 20:31:48,596 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-02 20:31:48,667 INFO [main] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-06-02 20:31:48,667 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:292] Root WebApplicationContext: initialization completed in 1072 ms
+2022-06-02 20:31:49,117 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 20:31:49,464 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-80"]
+2022-06-02 20:31:49,484 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 80 (http) with context path '/community'
+2022-06-02 20:31:49,494 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:61] Started NewCommunityApplication in 2.443 seconds (JVM running for 3.151)
+2022-06-02 20:31:56,886 INFO [http-nio-80-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 20:31:56,886 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2022-06-02 20:31:56,888 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 2 ms
+2022-06-02 20:31:56,938 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-06-02 20:31:57,068 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-06-02 20:34:51,530 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2022-06-02 20:34:51,538 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2022-06-02 20:34:54,510 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:55] Starting NewCommunityApplication using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 51220 (/Users/huliheng/IdeaProjects/NewCommunity/target/classes started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 20:34:54,515 INFO [main] c.a.n.NewCommunityApplication [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 20:34:55,092 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 20:34:55,094 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 20:34:55,115 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-06-02 20:34:55,532 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 80 (http)
+2022-06-02 20:34:55,540 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-80"]
+2022-06-02 20:34:55,541 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-06-02 20:34:55,541 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-02 20:34:55,604 INFO [main] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-06-02 20:34:55,605 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:292] Root WebApplicationContext: initialization completed in 1050 ms
+2022-06-02 20:34:56,058 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 20:34:56,420 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-80"]
+2022-06-02 20:34:56,441 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 80 (http) with context path '/community'
+2022-06-02 20:34:56,453 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:61] Started NewCommunityApplication in 2.375 seconds (JVM running for 3.076)
+2022-06-02 20:35:05,218 INFO [http-nio-80-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 20:35:05,219 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2022-06-02 20:35:05,220 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 1 ms
+2022-06-02 20:35:05,276 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-06-02 20:35:05,417 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-06-02 20:37:30,275 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2022-06-02 20:37:30,285 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2022-06-02 20:37:33,124 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:55] Starting NewCommunityApplication using Java 1.8.0_322 on hulihengdeMacBook-Pro.local with PID 55012 (/Users/huliheng/IdeaProjects/NewCommunity/target/classes started by huliheng in /Users/huliheng/IdeaProjects/NewCommunity)
+2022-06-02 20:37:33,127 INFO [main] c.a.n.NewCommunityApplication [SpringApplication.java:634] No active profile set, falling back to 1 default profile: "default"
+2022-06-02 20:37:33,743 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-06-02 20:37:33,745 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-06-02 20:37:33,770 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:201] Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2022-06-02 20:37:34,191 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port(s): 80 (http)
+2022-06-02 20:37:34,198 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-80"]
+2022-06-02 20:37:34,199 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2022-06-02 20:37:34,199 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/9.0.63]
+2022-06-02 20:37:34,272 INFO [main] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2022-06-02 20:37:34,272 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:292] Root WebApplicationContext: initialization completed in 1102 ms
+2022-06-02 20:37:34,719 INFO [main] o.s.b.a.w.s.WelcomePageHandlerMapping [WelcomePageHandlerMapping.java:57] Adding welcome page template: index
+2022-06-02 20:37:35,098 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-80"]
+2022-06-02 20:37:35,118 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:220] Tomcat started on port(s): 80 (http) with context path '/community'
+2022-06-02 20:37:35,129 INFO [main] c.a.n.NewCommunityApplication [StartupInfoLogger.java:61] Started NewCommunityApplication in 2.53 seconds (JVM running for 3.322)
+2022-06-02 20:37:46,148 INFO [http-nio-80-exec-1] o.a.c.c.C.[.[.[/community] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-06-02 20:37:46,149 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:525] Initializing Servlet 'dispatcherServlet'
+2022-06-02 20:37:46,150 INFO [http-nio-80-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:547] Completed initialization in 1 ms
+2022-06-02 20:37:46,181 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2022-06-02 20:37:46,309 INFO [http-nio-80-exec-1] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2022-06-02 20:41:13,164 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2022-06-02 20:41:13,166 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.

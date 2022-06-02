@@ -4,7 +4,6 @@ import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.UserService;
 import com.google.code.kaptcha.Producer;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +16,12 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 
-import static com.ancientmoon.newcommunity.utils.CommunityConstant.DEFAULT_EXPIRED_SECONDS;
-import static com.ancientmoon.newcommunity.utils.CommunityConstant.REMEMBER_EXPIRED_SECONDS;
+import static com.ancientmoon.newcommunity.utils.CommunityConstant.*;
 
 
 @Controller
@@ -70,10 +67,10 @@ public class LoginController {
     @GetMapping("/activation/{userId}/{code}")
     public String activation(Model model,@PathVariable("userId") int userId , @PathVariable("code") String code){
         int result = userService.activation(userId, code);
-        if (result == userService.ACTIVATION_SUCCESS) {
+        if (result == ACTIVATION_SUCCESS) {
             model.addAttribute("msg", "激活成功,您的账号已经可以正常使用了!");
             model.addAttribute("target", "/login");
-        } else if (result == userService.ACTIVATION_REPEAT) {
+        } else if (result == ACTIVATION_REPEAT) {
             model.addAttribute("msg", "无效操作,该账号已经激活过了!");
             model.addAttribute("target", "/index");
         } else {
