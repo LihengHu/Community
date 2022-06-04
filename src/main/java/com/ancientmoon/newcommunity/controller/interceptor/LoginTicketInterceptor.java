@@ -30,12 +30,8 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ticket = CookieUtil.getValue(request, "ticket");
-        System.out.println("----------调用一次-----------");
         if(ticket != null){
             LoginTicket loginTicket = userService.findLoginTicket(ticket);
-            if(loginTicket.getStatus() == 1){
-                System.out.println("----------此账号已退出-----------");
-            }
             if(loginTicket != null && loginTicket.getStatus() == 0 && loginTicket.getExpired().after(new Date())){
                 User user = userService.findUserById(loginTicket.getUserId());
                 //在本次请求中持有用户
@@ -55,7 +51,6 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("调用afterCompletion");
         hostHolder.clear();//清理hostHolder的资源，即threadLocal的资源
     }
 }
