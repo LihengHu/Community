@@ -61,8 +61,10 @@ public class DiscussPostController {
 
     @GetMapping("/detail/{discussPostId}")
     public String getDiscussPost(@PathVariable("discussPostId") int discussPostId , Model model , Page page){
+        //帖子
         DiscussPost discussPost = discussPostService.findDiscussPostById(discussPostId);
         model.addAttribute("post",discussPost);
+        //作者
         User user = userService.findUserById(discussPost.getUserId());
         model.addAttribute("user",user);
 
@@ -85,7 +87,8 @@ public class DiscussPostController {
                 //作者
                 commentVo.put("user",userService.findUserById(comment.getUserId()));
                 //回复
-                List<Comment> replyList = commentService.findCommentByEntity(ENTITY_TYPE_COMMENT, comment.getEntityId(), 0, Integer.MAX_VALUE);
+                List<Comment> replyList = commentService.findCommentByEntity(
+                        ENTITY_TYPE_COMMENT, comment.getId(), 0, Integer.MAX_VALUE);
                 //回复VO
                 List<Map<String,Object>> replyVoList = new ArrayList<>();
                 if(replyList != null){
@@ -111,5 +114,7 @@ public class DiscussPostController {
         model.addAttribute("comments",commentVoList);
         return "/site/discuss-detail";
     }
+
+
 
 }
