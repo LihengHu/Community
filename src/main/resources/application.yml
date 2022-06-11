@@ -28,6 +28,11 @@ spring:
           ssl:
             enable: true
     protocol: smtps
+  redis:
+    database: 11
+    host: localhost
+    port: 6379
+
 
 
 
@@ -54,3 +59,5 @@ community:
   path:
     domain: http://localhost:80
     upload: /Users/huliheng/IdeaProjects/NewCommunity/src/main/resources/upload
+
+#Redis
