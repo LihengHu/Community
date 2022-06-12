@@ -4,7 +4,9 @@ import com.ancientmoon.newcommunity.entity.DiscussPost;
 import com.ancientmoon.newcommunity.entity.Page;
 import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.DiscussPostService;
+import com.ancientmoon.newcommunity.service.LikeService;
 import com.ancientmoon.newcommunity.service.UserService;
+import com.ancientmoon.newcommunity.utils.CommunityConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +18,16 @@ import java.util.Map;
 
 
 @Controller
-public class HomeController {
+public class HomeController implements CommunityConstant {
 
     @Autowired
     private DiscussPostService discussPostService;
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private LikeService likeService;
 
     //返回的string是视图的名字
     @GetMapping("/index")
@@ -40,6 +45,8 @@ public class HomeController {
                 map.put("post", post);//评论实体
                 User user = userService.findUserById(post.getUserId());
                 map.put("user", user);//该评论的发起者的信息
+                long likeCount = likeService.findEntityLikeCount(ENTITY_TYPE_POST,post.getId());
+                map.put("likeCount",likeCount);
                 discussPosts.add(map);
             }
         }
