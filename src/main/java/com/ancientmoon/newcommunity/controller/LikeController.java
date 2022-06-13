@@ -24,15 +24,15 @@ public class LikeController {
 
     @PostMapping("/like")
     @ResponseBody
-    public String like(int entityType,int entityId){
+    public String like(int entityType, int entityId, int entityUserId) {
         User user = hostHolder.getUser();
-        likeService.like(user.getId(), entityType,entityId);
+        likeService.like(user.getId(), entityType, entityId, entityUserId);
         //数量
         long likeCount = likeService.findEntityLikeCount(entityType, entityId);
-        int status = likeService.findEntityLikeStatus(user.getId(), entityType,entityId);
-        Map<String,Object> map = new HashMap<>();
-        map.put("likeCount",likeCount);
-        map.put("likeStatus",status);
-        return CommunityUtil.getJSONString(0,null,map);
+        int status = likeService.findEntityLikeStatus(user.getId(), entityType, entityId);
+        Map<String, Object> map = new HashMap<>();
+        map.put("likeCount", likeCount);
+        map.put("likeStatus", status);
+        return CommunityUtil.getJSONString(0, null, map);
     }
 }

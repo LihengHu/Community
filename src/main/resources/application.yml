@@ -28,6 +28,7 @@ spring:
           ssl:
             enable: true
     protocol: smtps
+
   redis:
     database: 11
     host: localhost
