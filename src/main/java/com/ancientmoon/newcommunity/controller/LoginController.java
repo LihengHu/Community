@@ -172,6 +172,6 @@ public class LoginController {
         // 向客户端发送 Cookie
         response.addCookie(cookie_username);
         userService.logout(ticket);
-        return "redirect:/index";
+        return "redirect:/login";
     }
 }

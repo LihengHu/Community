@@ -22,6 +22,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 @Service
 public class UserService implements CommunityConstant {
@@ -203,13 +204,14 @@ public class UserService implements CommunityConstant {
     //1.优先从缓存中取值
     private User getCache(int userId){
         String redisKey = RedisKeyUtil.getUserKey(userId);
-        return (User) redisTemplate.opsForValue().get(redisKey);
+        User user = (User) redisTemplate.opsForValue().get(redisKey);
+        return user;
     }
     //2.取不到时初始化缓存数据
     private User initCache(int userId){
         User user = userMapper.selectById(userId);
         String redisKey = RedisKeyUtil.getUserKey(userId);
-        redisTemplate.opsForValue().set(redisKey,user,3600);
+        redisTemplate.opsForValue().set(redisKey,user,3600, TimeUnit.SECONDS);
         return user;
     }
 
