@@ -21,32 +21,34 @@ public class FollowService implements CommunityConstant {
     @Autowired
     private UserService userService;
 
-    public void follow(int userId , int entityType ,int entityId){
+    public void follow(int userId, int entityType, int entityId) {
         redisTemplate.execute(new SessionCallback() {
             @Override
             public Object execute(RedisOperations operations) throws DataAccessException {
-                String followeeKey = RedisKeyUtil.getFolloweeKey(userId,entityType);
-                String followerKey = RedisKeyUtil.getFollowerKey(entityType,entityId);
-                System.out.println(followeeKey);
-                System.out.println(followerKey);
+                String followeeKey = RedisKeyUtil.getFolloweeKey(userId, entityType);
+                String followerKey = RedisKeyUtil.getFollowerKey(entityType, entityId);
+
                 operations.multi();
-                operations.opsForZSet().add(followeeKey,entityId,System.currentTimeMillis());
-                operations.opsForZSet().add(followerKey,userId,System.currentTimeMillis());
+
+                operations.opsForZSet().add(followeeKey, entityId, System.currentTimeMillis());
+                operations.opsForZSet().add(followerKey, userId, System.currentTimeMillis());
+
                 return operations.exec();
             }
         });
     }
 
-    public void unfollow(int userId , int entityType ,int entityId){
+    public void unfollow(int userId, int entityType, int entityId) {
         redisTemplate.execute(new SessionCallback() {
             @Override
             public Object execute(RedisOperations operations) throws DataAccessException {
-                String followeeKey = RedisKeyUtil.getFolloweeKey(userId,entityType);
-                String followerKey = RedisKeyUtil.getFollowerKey(entityType,entityId);
+                String followeeKey = RedisKeyUtil.getFolloweeKey(userId, entityType);
+                String followerKey = RedisKeyUtil.getFollowerKey(entityType, entityId);
+
                 operations.multi();
 
-                operations.opsForZSet().remove(followeeKey,entityId);
-                operations.opsForZSet().remove(followerKey,userId);
+                operations.opsForZSet().remove(followeeKey, entityId);
+                operations.opsForZSet().remove(followerKey, userId);
 
                 return operations.exec();
             }
@@ -116,4 +118,3 @@ public class FollowService implements CommunityConstant {
     }
 
 }
-

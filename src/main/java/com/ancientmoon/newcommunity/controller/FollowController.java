@@ -34,7 +34,4 @@ public class FollowController {
         return CommunityUtil.getJSONString(0,"已取关！");
     }
 
-
-
-
 }
