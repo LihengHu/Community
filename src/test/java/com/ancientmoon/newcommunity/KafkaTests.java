@@ -16,11 +16,11 @@ public class KafkaTests {
 
     @Test
     public void testKafka(){
-        kafkaProducer.sendMessage("test","你好");
-        kafkaProducer.sendMessage("test","在吗");
+        kafkaProducer.sendMessage("test1","你好____________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________");
+        kafkaProducer.sendMessage("test1","在吗");
 
         try{
-            Thread.sleep(1000*5);
+            Thread.sleep(1000*20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -41,7 +41,7 @@ class KafkaProducer{
 
 @Component
 class KafkaConsumer{
-    @KafkaListener(topics = {"test"})
+    @KafkaListener(topics = {"test1"})
     public void handleMessage(ConsumerRecord record){
         System.out.println(record.value());
     }

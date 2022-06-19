@@ -14,5 +14,4 @@ public class Message {
     private String content;
     private int status;
     private Date createTime;
-
 }
