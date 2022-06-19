@@ -33,6 +33,13 @@ spring:
     database: 11
     host: localhost
     port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: community-consumer-group
+      enable-auto-commit: true
+      auto-commit-interval: 3000
+
 
 
 
@@ -61,4 +68,4 @@ community:
     domain: http://localhost:80
     upload: /Users/huliheng/IdeaProjects/NewCommunity/src/main/resources/upload
 
-#Redis
+#kafka
