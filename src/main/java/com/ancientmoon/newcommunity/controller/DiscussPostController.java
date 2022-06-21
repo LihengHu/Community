@@ -4,10 +4,8 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ancientmoon.newcommunity.dao.mapper.CommentMapper;
 import com.ancientmoon.newcommunity.dao.mapper.UserMapper;
-import com.ancientmoon.newcommunity.entity.Comment;
-import com.ancientmoon.newcommunity.entity.DiscussPost;
-import com.ancientmoon.newcommunity.entity.Page;
-import com.ancientmoon.newcommunity.entity.User;
+import com.ancientmoon.newcommunity.entity.*;
+import com.ancientmoon.newcommunity.event.EventProducer;
 import com.ancientmoon.newcommunity.service.CommentService;
 import com.ancientmoon.newcommunity.service.DiscussPostService;
 import com.ancientmoon.newcommunity.service.LikeService;
@@ -21,8 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
-import static com.ancientmoon.newcommunity.utils.CommunityConstant.ENTITY_TYPE_COMMENT;
-import static com.ancientmoon.newcommunity.utils.CommunityConstant.ENTITY_TYPE_POST;
+import static com.ancientmoon.newcommunity.utils.CommunityConstant.*;
 
 @Controller
 @RequestMapping("/discuss")
@@ -42,6 +39,9 @@ public class DiscussPostController {
     @Autowired
     private LikeService likeService;
 
+    @Autowired
+    private EventProducer eventProducer;
+
     //异步
     //客户端不需要等待服务器端的响应。在服务器处理请求的过程中，客户端可以进行其他的操作。
     @PostMapping("/add")
@@ -58,6 +58,14 @@ public class DiscussPostController {
         post.setContent(content);
         post.setCreateTime(new Date());
         discussPostService.addDiscussPost(post);
+        //触发发帖事件
+        Event event = new Event()
+                .setTopic(TOPIC_PUBLISH)
+                .setUserId(user.getId())
+                .setEntityType(ENTITY_TYPE_POST)
+                .setEntityId(post.getId());
+        eventProducer.fireEvent(event);
+
         //报错的情况统一处理
         return CommunityUtil.getJSONString(0, "发送成功");
     }
