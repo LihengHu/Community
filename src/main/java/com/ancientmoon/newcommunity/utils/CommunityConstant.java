@@ -67,6 +67,11 @@ public interface CommunityConstant {
      */
     String TOPIC_PUBLISH = "publish";
 
+    /**
+     * 删帖主题
+     */
+    String TOPIC_DELETE = "delete";
+
 
     /**
      * 权限: 普通用户
