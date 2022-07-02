@@ -11,6 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +27,7 @@ import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
@@ -117,7 +122,9 @@ public class LoginController {
     @PostMapping("/login")
     public String login(String username, String password, String code, boolean rememberme,
                         Model model, HttpServletResponse response,
-                        HttpServletRequest request) {
+                        HttpServletRequest request
+                        //@CookieValue("kaptchaOwner") String kaptchaOwner
+                        ) {
         //String kaptcha = (String)session.getAttribute("kaptcha");
         String kaptchaOwner = null;
         Cookie[] cookies = request.getCookies();
@@ -126,11 +133,13 @@ public class LoginController {
             return "/site/login";
         }
         for (Cookie cookie : cookies) {
-            if ("kaptchaOwner".equals(cookie.getName())) {
+            if (cookie.getName().equals("kaptchaOwner")) {
                 kaptchaOwner = cookie.getValue();
                 break;
             }
-            model.addAttribute("codeMsg", "验证码已过期，请输入新的验证码！");
+        }
+        if(StringUtils.isBlank(kaptchaOwner)){
+            model.addAttribute("codeMsg", "验证码已过期，请刷新！");
             return "/site/login";
         }
         String kaptcha = null;
@@ -151,6 +160,7 @@ public class LoginController {
             cookie.setPath(contextPath);
             cookie.setMaxAge(expireDSeconds);//有效时间
             response.addCookie(cookie);
+            //构建用户认证的结果，并存入SecurityContext，以便于Security进行授权
             return "redirect:/index";
         } else {
             model.addAttribute("usernameMsg", map.get("usernameMsg"));
@@ -172,6 +182,7 @@ public class LoginController {
         // 向客户端发送 Cookie
         response.addCookie(cookie_username);
         userService.logout(ticket);
+        SecurityContextHolder.clearContext();
         return "redirect:/login";
     }
 }

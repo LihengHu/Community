@@ -5,9 +5,14 @@ import com.ancientmoon.newcommunity.entity.User;
 import com.ancientmoon.newcommunity.service.UserService;
 import com.ancientmoon.newcommunity.utils.CookieUtil;
 import com.ancientmoon.newcommunity.utils.HostHolder;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -30,7 +35,7 @@ public class LoginTicketInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String ticket = CookieUtil.getValue(request, "ticket");
-        if(ticket != null){
+        if(!StringUtils.isBlank(ticket)){
             LoginTicket loginTicket = userService.findLoginTicket(ticket);
             if(loginTicket != null && loginTicket.getStatus() == 0 && loginTicket.getExpired().after(new Date())){
                 User user = userService.findUserById(loginTicket.getUserId());
