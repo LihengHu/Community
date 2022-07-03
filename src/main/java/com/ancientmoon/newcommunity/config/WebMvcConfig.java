@@ -1,6 +1,7 @@
 package com.ancientmoon.newcommunity.config;
 
 
+import com.ancientmoon.newcommunity.controller.interceptor.DataInterceptor;
 import com.ancientmoon.newcommunity.controller.interceptor.LoginRequiredInterceptor;
 import com.ancientmoon.newcommunity.controller.interceptor.LoginTicketInterceptor;
 import com.ancientmoon.newcommunity.controller.interceptor.MessageInterceptor;
@@ -20,6 +21,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
     private MessageInterceptor messageInterceptor;
+    @Autowired
+    private DataInterceptor dataInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -31,6 +34,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
         registry.addInterceptor(messageInterceptor)
+                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
+
+        registry.addInterceptor(dataInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
     }
 }
