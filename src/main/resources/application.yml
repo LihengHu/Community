@@ -71,3 +71,10 @@ community:
     upload: /Users/huliheng/IdeaProjects/NewCommunity/src/main/resources/upload
 
 #kafka
+
+#咖啡因
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180
+

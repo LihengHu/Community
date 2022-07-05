@@ -34,7 +34,7 @@ public class MapperTests {
     {
         int n = discussPostMapper.selectDiscussPostRows(0);
         Assertions.assertEquals(n,149);
-        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(0,0,10);
+        List<DiscussPost> list = discussPostMapper.selectDiscussPosts(0,0,10,0);
         for (DiscussPost discussPost:
              list) {
             System.out.println(discussPost);
