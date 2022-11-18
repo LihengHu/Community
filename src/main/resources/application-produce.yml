@@ -1,0 +1,80 @@
+server:
+  port: 8080
+  servlet:
+    context-path:
+spring:
+  datasource:
+    username: root
+    password: wsad8217
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      idle-timeout: 30000
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+
+  thymeleaf:
+    cache: false
+
+  #Mail配置
+  mail:
+    host: smtp.qq.com
+    port: 465
+    username: 821786679@qq.com
+    password: pijxoakhlxhjbcfb
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    protocol: smtps
+
+  redis:
+    database: 11
+    host: 127.0.0.1
+    port: 6379
+  kafka:
+    bootstrap-servers: 101.132.178.93:9092
+    consumer:
+      group-id: community-consumer-group
+      enable-auto-commit: true
+      auto-commit-interval: 3000
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ancientmoon.newcommunity.entity
+
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
+
+
+
+#logging:
+#  level:
+#    com.ancientmoon.newcommunity: debug
+#  file:
+#    path: /Users/huliheng/IdeaProjects/NewCommunity/src/main/java/com/ancientmoon/newcommunity/log
+
+#community
+
+community:
+  path:
+    domain: http://101.132.178.93:80
+    upload: /Users/huliheng/IdeaProjects/NewCommunity/src/main/resources/upload
+
+#kafka
+
+#咖啡因
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180
+
+# actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: info,caches

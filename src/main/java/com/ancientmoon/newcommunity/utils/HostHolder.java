@@ -4,7 +4,6 @@ package com.ancientmoon.newcommunity.utils;
 import com.ancientmoon.newcommunity.entity.User;
 import org.springframework.stereotype.Component;
 
-
 //用于代替Session对象
 @Component
 public class HostHolder {

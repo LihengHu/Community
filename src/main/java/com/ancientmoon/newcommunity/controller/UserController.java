@@ -8,6 +8,8 @@ import com.ancientmoon.newcommunity.service.UserService;
 import com.ancientmoon.newcommunity.utils.CommunityConstant;
 import com.ancientmoon.newcommunity.utils.CommunityUtil;
 import com.ancientmoon.newcommunity.utils.HostHolder;
+import com.ancientmoon.newcommunity.utils.QiniuUtil;
+import com.qiniu.common.QiniuException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
+
 
 @Controller
 @RequestMapping("/user")
@@ -61,7 +64,7 @@ public class UserController implements CommunityConstant {
 
     @LoginRequired
     @PostMapping("/upload")
-    public String uploadHeader(MultipartFile headerImage , Model model){
+    public String uploadHeader(MultipartFile headerImage , Model model) throws QiniuException {
         if(headerImage == null){
             model.addAttribute("error","您还没有选择图片！");
             return "/site/setting";
@@ -74,20 +77,18 @@ public class UserController implements CommunityConstant {
         }
         //生成随机文件名
         fileName = CommunityUtil.generateUUID()+suffix;
-        //存放路径
-        File dest = new File(uploadPath+"/"+fileName);
+        byte[] bytes;
         try {
-            headerImage.transferTo(dest);
+            bytes = headerImage.getBytes();
         } catch (IOException e) {
-            logger.error("上传文件失败!"+e.getMessage());
-            throw new RuntimeException("上传文件失败。服务器发生异常",e);
+            throw new RuntimeException(e);
         }
+        String url = QiniuUtil.upload(bytes,fileName);
+
         // 更新当前用户的头像的路径(web访问路径)
-        // http://localhost:8080/community/user/header/xxx.png
         //User user = (User) model.getAttribute("loginUser");
         User user = hostHolder.getUser();
-        String headerUrl = domain + contextPath + "/user/header/" + fileName;
-        userService.updateHeader(user.getId(), headerUrl);
+        userService.updateHeader(user.getId(), url);
         return "redirect:/index";
     }
 
